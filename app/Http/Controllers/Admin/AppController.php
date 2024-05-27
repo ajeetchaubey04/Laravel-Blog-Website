@@ -13,7 +13,7 @@ class AppController extends Controller
 
     public function categories()
     {
-        return "hello from categores";
+        return view('admin.categories.index');
     }
     public function addCategory()
     {
