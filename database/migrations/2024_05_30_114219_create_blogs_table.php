@@ -14,10 +14,13 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('blog_title', 200);
+            $table->string('url_slug')->unique();
             $table->text('description');
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('category_id'); // or $table->foreignId('category_id');
-            $table->unsignedBigInteger('user_id'); // or $table->foreignId('user_id');
+            $table->unsignedBigInteger('user_id')->nullable(); // or $table->foreignId('user_id');
             $table->tinyInteger('display_on_homepage');
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->string('thumbnail', 40);
             $table->timestamps();
         });

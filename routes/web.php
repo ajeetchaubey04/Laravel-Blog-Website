@@ -28,3 +28,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('add-categories', [AdminAppController::class, 'addCategory'])->name("categories.add");
 
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

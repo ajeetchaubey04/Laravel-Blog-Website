@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('blog__comments', function (Blueprint $table) {
             $table->id();
+            $table->integer('blog_id');
             $table->text('comment');
             $table->string('user_name');
-            $table->tinyInteger('status')->default(1);
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }
