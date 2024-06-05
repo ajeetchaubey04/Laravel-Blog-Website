@@ -26,6 +26,8 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('categories', [AdminAppController::class, 'categories'])->name("categories");
     Route::get('add-categories', [AdminAppController::class, 'addCategory'])->name("categories.add");
+    Route::get('edit-category/{id}', [AdminAppController::class, 'editCategory'])->name("categories.edit");
+    Route::post('store-category', [AdminAppController::class, 'storeCategory'])->name('categories.store');
 
 });
 
