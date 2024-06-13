@@ -23,12 +23,17 @@ Route::get('/blog/{slug}', [AppController::class, 'blog'])->name("blog");
 Route::group(['prefix' => 'admin'], function () {
 
     Route::get('dashboard', [AdminAppController::class, 'dashboard'])->name("dashboard");
-
+    
+    ##Admin Categories Section
     Route::get('categories', [AdminAppController::class, 'categories'])->name("categories");
     Route::get('add-categories', [AdminAppController::class, 'addCategory'])->name("categories.add");
-    Route::get('edit-category/{id}', [AdminAppController::class, 'editCategory'])->name("categories.edit");
+    Route::put('edit-category/{id}', [AdminAppController::class, 'editCategory'])->name("categories.edit");
     Route::post('store-category', [AdminAppController::class, 'storeCategory'])->name('categories.store');
+    Route::get('index-categories',[AdminAppController::class,'indexCategory'])->name('categories.index');
 
+    ##Admin Blog section
+    
+    
 });
 
 Auth::routes();
